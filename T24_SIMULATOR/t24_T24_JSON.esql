@@ -1,0 +1,176 @@
+
+
+CREATE COMPUTE MODULE t24_T24_JSON   
+	CREATE FUNCTION Main() RETURNS BOOLEAN     
+	BEGIN
+		 CALL CopyEntireMessage();    
+		RETURN TRUE;
+	END;      
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+	CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		CREATE LASTCHILD OF OutputRoot.JSON NAME 'Data';
+		SET OutputRoot.JSON.Data.realm = FIELDVALUE(InputRoot.XMLNSC.log.(XMLNSC.Attribute)realm);
+		SET OutputRoot.JSON.Data.at = FIELDVALUE(InputRoot.XMLNSC.log.(XMLNSC.Attribute)at);
+		SET OutputRoot.JSON.Data.lifespan = FIELDVALUE(InputRoot.XMLNSC.log.(XMLNSC.Attribute)lifespan);
+
+		CREATE LASTCHILD OF OutputRoot.JSON.Data NAME 'send';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.send NAME 'isomsg';
+		SET OutputRoot.JSON.Data.send.isomsg.direction = FIELDVALUE(InputRoot.XMLNSC.log.send.isomsg.(XMLNSC.Attribute)direction);
+
+		CREATE FIELD OutputRoot.JSON.Data.send.isomsg.field IDENTITY(JSON.Array);
+
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[1].id = InputRoot.XMLNSC.log.send.isomsg.field[1].id;
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[1].value = InputRoot.XMLNSC.log.send.isomsg.field[1].value;
+
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[2].id = InputRoot.XMLNSC.log.send.isomsg.field[2].id;
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[2].value = InputRoot.XMLNSC.log.send.isomsg.field[2].value;
+
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[3].id = InputRoot.XMLNSC.log.send.isomsg.field[3].id;
+		SET OutputRoot.JSON.Data.send.isomsg.field.Item[3].value = InputRoot.XMLNSC.log.send.isomsg.field[3].value;
+
+		DECLARE ref REFERENCE TO OutputRoot.JSON.Data.send.isomsg.field;
+		DECLARE ref1 REFERENCE TO InputRoot.XMLNSC.log.send.isomsg;  
+
+
+--		SET ref.Item[4].id =ref1.field[4].id;
+--		SET ref.Item[4].value = ref1.field[4].value;
+--
+--		SET ref.Item[5].id =ref1.field[5].id;
+--		SET ref.Item[5].value = ref1.field[5].value;
+--
+--		SET ref.Item[6].id =ref1.field[6].id;
+--		SET ref.Item[6].value = ref1.field[6].value;
+--
+--		SET ref.Item[7].id =ref1.field[7].id;
+--		SET ref.Item[7].value = ref1.field[7].value;
+--
+--		SET ref.Item[8].id =ref1.field[8].id;
+--		SET ref.Item[8].value = ref1.field[8].value;
+--
+--		SET ref.Item[9].id =ref1.field[9].id;
+--		SET ref.Item[9].value = ref1.field[9].value;
+--
+--		SET ref.Item[10].id =ref1.field[10].id;
+--		SET ref.Item[10].value = ref1.field[10].value;
+--
+--		SET ref.Item[11].id =ref1.field[11].id;
+--		SET ref.Item[11].value = ref1.field[11].value;
+--
+--		SET ref.Item[12].id =ref1.field[12].id;
+--		SET ref.Item[12].value = ref1.field[12].value;
+--
+--		SET ref.Item[13].id =ref1.field[13].id;
+--		SET ref.Item[13].value = ref1.field[13].value;
+--
+--		SET ref.Item[14].id =ref1.field[14].id;
+--		SET ref.Item[14].value = ref1.field[14].value;
+--
+--		SET ref.Item[15].id =ref1.field[15].id;
+--		SET ref.Item[15].value = ref1.field[15].value;
+--
+--		SET ref.Item[16].id =ref1.field[16].id;
+--		SET ref.Item[16].value = ref1.field[16].value;
+--
+--		SET ref.Item[17].id =ref1.field[17].id;
+--		SET ref.Item[17].value = ref1.field[17].value;
+--
+--		SET ref.Item[18].id =ref1.field[18].id;
+--		SET ref.Item[18].value = ref1.field[18].value;
+--
+--		SET ref.Item[19].id =ref1.field[19].id;
+--		SET ref.Item[19].value = ref1.field[19].value;
+--
+--		SET ref.Item[20].id =ref1.field[20].id;
+--		SET ref.Item[20].value = ref1.field[20].value;
+--
+--		SET ref.Item[21].id =ref1.field[21].id;
+--		SET ref.Item[21].value = ref1.field[21].value;
+--
+--		SET ref.Item[22].id =ref1.field[22].id;
+--		SET ref.Item[22].value = ref1.field[22].value;
+--		
+--	
+--
+--		SET ref.Item[23].id =ref1.field[23].id;
+--		SET ref.Item[23].value = ref1.field[23].value;
+
+DECLARE dataref1 CHARACTER;
+
+DECLARE dataStrHeader,dataStrHeaderID CHARACTER;
+
+SET dataref1 = ref1;
+DECLARE refDetails REFERENCE TO ref1;
+DECLARE i INTEGER 1;
+WHILE  LASTMOVE (refDetails) DO
+	DECLARE rehg CHARACTER;
+	SET rehg = refDetails.field[i].id ;
+	IF refDetails.field[i].id = '48' THEN
+		SET dataStrHeader = refDetails.field.value;
+		SET dataStrHeaderID = refDetails.field.id;
+		
+	END IF;
+	
+	MOVE refDetails NEXTSIBLING;
+	SET i=i+1;
+	
+END WHILE;
+
+	
+--	IF CONTAINS('~' ,dataref1) THEN
+--		SET dataStrHeader = SUBSTRING('~' BEFORE dataref1);
+--		
+--	ELSE
+--		
+--	END IF;
+	
+	
+
+
+
+
+--
+--		SET ref.Item[24].id =ref1.field[24].id;
+--		SET ref.Item[24].value = ref1.field[24].value;
+--
+--		SET ref.Item[25].id =ref1.field[25].id;
+--		SET ref.Item[25].value = ref1.field[25].value;
+--
+--		SET ref.Item[26].id =ref1.field[26].id;
+--		SET ref.Item[26].value = ref1.field[26].value;
+--
+--		SET ref.Item[27].id =ref1.field[27].id;
+--		SET ref.Item[27].value = ref1.field[27].value;
+--
+--		SET ref.Item[28].id =ref1.field[28].id;
+--		SET ref.Item[28].value = ref1.field[28].value;
+--
+--		SET ref.Item[29].id =ref1.field[29].id;
+--		SET ref.Item[29].value = ref1.field[29].value;
+--
+--		SET ref.Item[30].id =ref1.field[30].id;
+--		SET ref.Item[30].value = ref1.field[30].value;
+
+
+--		CREATE LASTCHILD OF OutputRoot.JSON.Data.send.isomsg NAME 'isomsg';
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.id = FIELDVALUE(InputRoot.XMLNSC.log.send.isomsg.isomsg.(XMLNSC.Attribute)id);
+--
+--		CREATE FIELD OutputRoot.JSON.Data.send.isomsg.isomsg.field IDENTITY(JSON.Array);
+--
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[1].id = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[1].id;
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[1].value = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[1].value;
+--
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[2].id = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[2].id;
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[2].value = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[2].value;
+--
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[3].id = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[3].id;
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[3].value = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[3].value;
+--
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[4].id = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[4].id;
+--		SET OutputRoot.JSON.Data.send.isomsg.isomsg.field.Item[4].value = InputRoot.XMLNSC.log.send.isomsg.isomsg.field[4].value;
+--
+
+	END;
+END MODULE;

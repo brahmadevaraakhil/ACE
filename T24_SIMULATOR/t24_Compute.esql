@@ -1,0 +1,158 @@
+
+
+CREATE COMPUTE MODULE t24_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		 CALL T24_RESPONSE();
+		RETURN FALSE;
+	END;
+
+	
+	CREATE PROCEDURE T24_RESPONSE() BEGIN
+		SET OutputRoot.MQMD.CorrelId = InputRoot.MQMD.CorrelId;
+		DECLARE protocolType CHARACTER InputRoot.Properties.ReplyProtocol;
+		
+		DECLARE dateDetails DATE CURRENT_TIMESTAMP;
+		DECLARE space1 CHARACTER 'channel/192.168.100.44:1542';
+		DECLARE space2 NAMESPACE dateDetails;
+		DECLARE space3 NAMESPACE '2ms';
+		
+		
+		DECLARE id0 CHARACTER '0210';
+		DECLARE id2 CHARACTER '502195______2416';
+		DECLARE id3 CHARACTER '382000';
+		DECLARE id4 CHARACTER '000000000000';
+		DECLARE id7 CHARACTER '0112153358';
+		DECLARE id11 CHARACTER '035815';
+		DECLARE id12 CHARACTER '173358';
+		DECLARE id13 CHARACTER '0112';
+		DECLARE id14 CHARACTER '4912';
+		DECLARE id15 CHARACTER '0112';
+		DECLARE id18 CHARACTER '6011';
+		DECLARE id22 CHARACTER '002';
+		DECLARE id25 CHARACTER '27';
+		DECLARE id28 CHARACTER 'C00000000';
+		DECLARE id30 CHARACTER 'C00000000';
+		DECLARE id32 CHARACTER '502195';
+		DECLARE id33 CHARACTER '502195';
+		DECLARE id37 CHARACTER '000578618514';
+		DECLARE id39 CHARACTER '00';
+		DECLARE id41 CHARACTER 'ZSS26377';
+		DECLARE id42 CHARACTER '26377-SBZMOBILE';
+		DECLARE id43 CHARACTER 'SBZ MOBILE ECONET      HARARE       AFZW';
+		DECLARE id48 CHARACTER 'DATE_TIME|TRAN_TYPE|SIGN|TRAN_AMOUNT|CURR_CODE~20200111182456|SBZ148|DR|000000000110|932~20200111182456|SBZ148|DR|000000000350|932~20200111182456|SBZ148|DR|000000010972|932~20200111182456|SBZ186|DR|000000000219|932~20200113170705|SBZ779|DR|000000000150|932~';
+		DECLARE id49 CHARACTER '932';
+		DECLARE id54 CHARACTER '1001932C0000001373441002932C000000137044';
+		DECLARE id56 CHARACTER '1510';
+		DECLARE id59 CHARACTER '0995778843';
+		DECLARE id100 CHARACTER '502195';
+		DECLARE id102 CHARACTER '1003647648';
+		DECLARE id123 CHARACTER '100450100130021';
+		
+		DECLARE ids2 CHARACTER '0995778843';
+		DECLARE ids3 CHARACTER 'SBZMobileSrcSBZMobileSnk131822035815';
+		DECLARE ids20 CHARACTER '20200112';
+		DECLARE ids22 CHARACTER '14MSDN212263774742331218Postilion:MetaData22114MSDN11117Channel11117Channel210SMARTPHONE';
+		
+
+
+
+		SET OutputRoot.XMLNSC.log.(XMLNSC.Attribute)realmn = space1;
+		SET OutputRoot.XMLNSC.log.(XMLNSC.NamespaceDecl)at = space2;
+		SET OutputRoot.XMLNSC.log.(XMLNSC.NamespaceDecl)lifespan = space3;
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.log NAME 'send';
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.log.send NAME 'isomsg' ;
+			DECLARE ref REFERENCE TO OutputRoot.XMLNSC.log.send.isomsg;
+		CREATE LASTCHILD OF ref TYPE XMLNSC.Attribute NAME 'direction' VALUE 'outgoing';
+		
+		
+	
+		
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[1].(XMLNSC.Attribute)id = '0';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[1].(XMLNSC.Attribute)value = id0;
+ 		SET OutputRoot.XMLNSC.log.send.isomsg.field[2].(XMLNSC.Attribute)id = '2';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[2].(XMLNSC.Attribute)value = id2;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[3].(XMLNSC.Attribute)id = '3';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[3].(XMLNSC.Attribute)value = id3;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[4].(XMLNSC.Attribute)id = '4';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[4].(XMLNSC.Attribute)value = id4;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[5].(XMLNSC.Attribute)id = '7';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[5].(XMLNSC.Attribute)value = id7;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[6].(XMLNSC.Attribute)id = '11';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[6].(XMLNSC.Attribute)value = id11;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[7].(XMLNSC.Attribute)id = '12';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[7].(XMLNSC.Attribute)value = id12;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[8].(XMLNSC.Attribute)id = '13';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[8].(XMLNSC.Attribute)value = id13;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[9].(XMLNSC.Attribute)id = '14';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[9].(XMLNSC.Attribute)value = id14;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[10].(XMLNSC.Attribute)id = '15';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[10].(XMLNSC.Attribute)value = id15;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[11].(XMLNSC.Attribute)id = '18';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[11].(XMLNSC.Attribute)value = id18;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[12].(XMLNSC.Attribute)id = '22';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[12].(XMLNSC.Attribute)value = id22;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[13].(XMLNSC.Attribute)id = '25';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[13].(XMLNSC.Attribute)value = id25;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[14].(XMLNSC.Attribute)id = '28';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[14].(XMLNSC.Attribute)value = id28;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[15].(XMLNSC.Attribute)id = '30';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[15].(XMLNSC.Attribute)value = id30;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[16].(XMLNSC.Attribute)id = '32';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[16].(XMLNSC.Attribute)value = id32;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[17].(XMLNSC.Attribute)id = '33';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[17].(XMLNSC.Attribute)value = id33;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[18].(XMLNSC.Attribute)id = '37';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[18].(XMLNSC.Attribute)value = id37;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[19].(XMLNSC.Attribute)id = '39';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[19].(XMLNSC.Attribute)value = id39;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[20].(XMLNSC.Attribute)id = '41';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[20].(XMLNSC.Attribute)value = id41;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[21].(XMLNSC.Attribute)id = '42';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[21].(XMLNSC.Attribute)value = id42;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[22].(XMLNSC.Attribute)id = '43';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[22].(XMLNSC.Attribute)value = id43;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[23].(XMLNSC.Attribute)id = '48';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[23].(XMLNSC.Attribute)value = id48;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[24].(XMLNSC.Attribute)id = '49';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[24].(XMLNSC.Attribute)value = id49;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[25].(XMLNSC.Attribute)id = '54';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[25].(XMLNSC.Attribute)value = id54;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[26].(XMLNSC.Attribute)id = '56';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[26].(XMLNSC.Attribute)value = id56;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[27].(XMLNSC.Attribute)id = '59';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[27].(XMLNSC.Attribute)value = id59;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[28].(XMLNSC.Attribute)id = '100';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[28].(XMLNSC.Attribute)value = id100;
+		
+		
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[29].(XMLNSC.Attribute)id = '102';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[29].(XMLNSC.Attribute)value = id102;
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[30].(XMLNSC.Attribute)id = '123';
+		SET OutputRoot.XMLNSC.log.send.isomsg.field[30].(XMLNSC.Attribute)value = id123;
+		
+		
+		DECLARE ref1 REFERENCE TO OutputRoot.XMLNSC.log.send.isomsg;
+		CREATE LASTCHILD OF ref1.isomsg TYPE XMLNSC.Attribute NAME 'id' VALUE '127';
+		
+		
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[1].(XMLNSC.Attribute)id = '2';
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[1].(XMLNSC.Attribute)value = ids2;
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[2].(XMLNSC.Attribute)id = '3';
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[2].(XMLNSC.Attribute)value = ids3;
+		
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[3].(XMLNSC.Attribute)id = '20';
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[3].(XMLNSC.Attribute)value = ids20;
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[4].(XMLNSC.Attribute)id = '22';
+		SET OutputRoot.XMLNSC.log.send.isomsg.isomsg.field[4].(XMLNSC.Attribute)value = ids22;
+		
+		IF protocolType = 'TCPIP' THEN
+			SET OutputLocalEnvironment.Destination.TCPIP.Output.Id = InputLocalEnvironment.TCPIP.Input.ConnectionDetails.Id;
+			PROPAGATE TO TERMINAL 'out1';
+		ELSE
+			PROPAGATE TO TERMINAL 'out';
+		END IF;
+		
+		
+	END;
+END MODULE;
